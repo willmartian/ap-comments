@@ -38,14 +38,18 @@ export class FediChat extends LitElement {
     }
 
     .author a {
-      font-size: .85em;
+      font-size: .75em;
     }
 
     .action-bar {
       display: flex;
-      justify-content: space-around;
+      margin-bottom: 1.5em;
     }
-  `;
+
+    .action-bar > * {
+      margin-right: 1.5em;
+    }
+   `;
 
   @property()
   src!: string;
@@ -96,9 +100,7 @@ export class FediChat extends LitElement {
     }
     return html`
       ${this.hideActionBar ? nothing : this._actionTask.render({
-        pending: () => html`<div>Loading...</div>`,
         complete: (comment) => this.renderActionBar(comment.replies_count, comment.reblogs_count, comment.favourites_count),
-        error: () => html`<div>Error!</div>`
       })}
       <div part="comment-container">
         ${this.renderCommentList()}
@@ -109,20 +111,22 @@ export class FediChat extends LitElement {
   private renderComment(comment: Comment) {
     return html`<article class="comment" part="comment">
       <div class="author">
-        <div>${comment.account.display_name}</div>
-        <div>
+        <div part="author-name">${comment.account.display_name}</div>
+        <div part="author-link">
           <a href=${comment.account.url}>${this.getFullUsername(comment.account)}</a>
         </div>
       </div>
-      <div class="content" .innerHTML=${comment.content}></div>
+      <div part="content" class="content" .innerHTML=${comment.content}></div>
     </article>`;
   }
 
+  // TODO: allow better customization of icons
   private renderActionBar(replies_count: number, reblogs_count: number, favourites_count: number) {
     return html`<div class="action-bar" part="action-bar">
-      <div>${replies_count} Replies</div>
-      <div>${reblogs_count} Boosts</div>
-      <div>${favourites_count} Favorites</div>
+      <div><a href=${this.src}>Join the conversation on Mastodon</a></div>
+      <div>💬 ${replies_count}</div>
+      <div>♻️ ${reblogs_count}</div>
+      <div>⭐ ${favourites_count}</div>
     </div>`
   }
 
