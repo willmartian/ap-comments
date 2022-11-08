@@ -6,6 +6,7 @@ export type Comment = {
   favourites_count: number;
   content: string;
   account: Account;
+  created_at: string;
 };
 
 export type CommentsResponse = {

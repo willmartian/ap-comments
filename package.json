@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@lit-labs/task": "^2.0.0",
+    "javascript-time-ago": "^2.5.9",
     "lit": "^2.4.0"
   },
   "devDependencies": {
