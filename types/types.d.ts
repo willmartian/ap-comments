@@ -6,6 +6,7 @@ export declare type Comment = {
     favourites_count: number;
     content: string;
     account: Account;
+    created_at: string;
 };
 export declare type CommentsResponse = {
     descendants: Comment[];
