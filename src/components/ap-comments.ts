@@ -83,14 +83,15 @@ export class Comments extends LitElement {
       flex-direction: column;
       width: 100%;
       overflow: auto;
+      text-decoration: none;
     }
 
-    a.muted {
+    .muted {
       color: var(--color-muted);
       text-decoration: none;
     }
 
-    .details a {
+    .details .author-link {
       margin-top: .25em;
     }
 
@@ -112,7 +113,7 @@ export class Comments extends LitElement {
       justify-content: center;
       align-items: center;
       gap: 0.33em;
-      color: var(--color-muted)
+      color: var(--color-muted);
     }
 
     .avatar {
@@ -239,10 +240,10 @@ export class Comments extends LitElement {
           <img src=${comment.account.avatar}>
           <div class="avatar-overlay"></div>
         </a>
-        <div class="details">
+        <a href=${comment.account.url} class="details">
           <div class="name truncate">${comment.account.display_name}</div>
-          <a part="author-link" class="truncate muted" href=${comment.account.url}>${this.getFullUsername(comment.account)}</a>
-        </div>
+          <div part="author-link" class="author-link truncate muted">${this.getFullUsername(comment.account)}</div>
+        </a>
       </div>
       <div 
         part="content" 
@@ -252,7 +253,7 @@ export class Comments extends LitElement {
       <div part="footer" class="footer">
         ${this.renderActionBar(comment.replies_count, comment.reblogs_count, comment.favourites_count)}
         <span class="seperator"></span>
-        <a href="#" class="time muted">${this.getTimeAgo(comment.created_at)}</a>
+        <a href=${comment.url} class="time muted">${this.getTimeAgo(comment.created_at)}</a>
       </div>
     </article>
     <!-- TODO fix -->
