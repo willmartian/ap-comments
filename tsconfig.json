@@ -20,5 +20,5 @@
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.stories.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.vite.json" }]
 }
