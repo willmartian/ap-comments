@@ -1,1 +1,1 @@
-export { FediChat } from "./components/fedi-chat";
+export { Comments } from "./components/ap-comments";

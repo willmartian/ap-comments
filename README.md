@@ -1,3 +1,3 @@
-# fedi-chat
+# ap-comments
 
-Decentralized & open source Disqus alternative for adding comments to websites, built on Mastodon and the Fediverse.
+Web component for displaying ActivityPub replies. 

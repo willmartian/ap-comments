@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit + TS</title>
 
-    <script type="module" src="/src/components/fedi-chat.ts"></script>
+    <script type="module" src="/src/components/ap-comments.ts"></script>
     <style>
-      fedi-chat {
+      ap-comments {
         font-family: monospace;
       }
 
-      fedi-chat::part(comment) {
+      ap-comments::part(comment) {
         border: 1px solid black;
         border-radius: 0;
       }
@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="post-list">
-      <fedi-chat src="https://fosstodon.org/@willmartian/109285848751638736"></fedi-chat>
+      <ap-comments src="https://fosstodon.org/@willmartian/109285848751638736"></ap-comments>
     </div>
   </body>
 </html>

@@ -7,6 +7,7 @@ export type Comment = {
   content: string;
   account: Account;
   created_at: string;
+  in_reply_to_id: string;
 };
 
 export type CommentsResponse = {
@@ -19,4 +20,5 @@ export type Account = {
   display_name: string;
   url: string;
   avatar: string;
+  note: string;
 };
